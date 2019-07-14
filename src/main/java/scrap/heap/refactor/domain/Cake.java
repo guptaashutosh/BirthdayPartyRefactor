@@ -1,8 +1,6 @@
 package scrap.heap.refactor.domain;
 
-/**
- * Care Object  and its Orderable entity, which means you can place order using this entity
- */
+/** Care Object and its Orderable entity, which means you can place order using this entity */
 public class Cake implements Orderable<Cake> {
   private Flavors flavor;
   private Flavors frostingFlavor;

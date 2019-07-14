@@ -1,10 +1,8 @@
 package scrap.heap.refactor.domain;
 
-import java.lang.reflect.InvocationTargetException;
-
 /**
- * Interface to have 'default' place order implementation and it can also have more
- * methods to enforce concrete class to implement.
+ * Interface to have 'default' place order implementation and it can also have more methods to
+ * enforce concrete class to implement.
  *
  * @param <E>
  */
