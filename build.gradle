@@ -22,10 +22,16 @@ repositories {
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    implementation 'com.google.guava:guava:27.0.1-jre'
+    implementation(
+            'com.google.guava:guava:27.0.1-jre',
+            'commons-cli:commons-cli:1.4'
+    )
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+}
+run {
+    args = ["-c=CHOCOLATE,CHOCOLATE,CIRCLE,SMALL,BROWN", "-b=RED,mylar,6"]
 }
 
 // Define the main class for the application

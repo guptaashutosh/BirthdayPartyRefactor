@@ -8,6 +8,15 @@ functionality (unless you consider tests additional functionality), we're just c
  
 ## Getting Started
 
-Running the application: `gradle build test run`
+Build the application: `gradle build test run`
 
+
+## Create the order
+Build the order
+
+`
+gradle run --args="-c=CHOCOLATE,CHOCOLATE,CIRCLE,SMALL,BROWN -b=RED,mylar,6"
+`
+
+##Output
 All output is written to the console.
