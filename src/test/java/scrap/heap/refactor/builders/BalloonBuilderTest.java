@@ -4,18 +4,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import scrap.heap.refactor.domain.Balloon;
-import scrap.heap.refactor.domain.Colors;
-import scrap.heap.refactor.domain.Material;
+import scrap.heap.refactor.domain.constants.Colors;
+import scrap.heap.refactor.domain.constants.Material;
 
 import static org.junit.Assert.*;
 
 public class BalloonBuilderTest {
 
-  private BalloonBuilder balloonBuilder;
+  private Balloon.BalloonBuilder balloonBuilder;
 
   @Before
   public void setUp() throws Exception {
-    balloonBuilder = new BalloonBuilder();
+    balloonBuilder = new Balloon.BalloonBuilder();
   }
 
   @Test

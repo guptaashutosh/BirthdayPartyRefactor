@@ -3,18 +3,22 @@ package scrap.heap.refactor.builders;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import scrap.heap.refactor.domain.*;
+import scrap.heap.refactor.domain.Cake;
+import scrap.heap.refactor.domain.constants.Colors;
+import scrap.heap.refactor.domain.constants.Flavors;
+import scrap.heap.refactor.domain.constants.Shapes;
+import scrap.heap.refactor.domain.constants.Sizes;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 public class CakeBuilderTest {
 
-  private CakeBuilder cakeBuilder;
+  private Cake.CakeBuilder cakeBuilder;
 
   @Before
   public void setUp() throws Exception {
-    cakeBuilder = new CakeBuilder();
+    cakeBuilder = new Cake.CakeBuilder();
   }
 
   @Test
@@ -49,8 +53,7 @@ public class CakeBuilderTest {
 
   @Test
   public void testCreateCake() {
-    CakeBuilder cakeBuilder =
-        this.cakeBuilder
+    this.cakeBuilder
             .setCakeColor(Colors.BROWN)
             .setFlavor(Flavors.CHOCOLATE)
             .setFrostingFlavor(Flavors.VANILLA)
@@ -76,8 +79,7 @@ public class CakeBuilderTest {
 
   @Test
   public void testPlaceOrder() {
-    CakeBuilder cakeBuilder =
-        this.cakeBuilder
+    this.cakeBuilder
             .setCakeColor(Colors.BROWN)
             .setFlavor(Flavors.CHOCOLATE)
             .setFrostingFlavor(Flavors.VANILLA)
