@@ -1,4 +1,4 @@
-package scrap.heap.refactor.domain;
+package scrap.heap.refactor.domain.constants;
 
 public enum Flavors {
   VANILLA,

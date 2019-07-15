@@ -1,11 +1,17 @@
 package scrap.heap.refactor.domain;
 
+import scrap.heap.refactor.domain.constants.Colors;
+import scrap.heap.refactor.domain.constants.Material;
+
 public class Balloon implements Orderable<Balloon> {
   private Colors balloonColor;
   private Material material;
   private Integer number;
 
-  public Balloon(final Colors balloonColor, final Material material, final int number) {
+  private Balloon() {
+  }
+
+  private Balloon(final Colors balloonColor, final Material material, final int number) {
     this.balloonColor = balloonColor;
     this.material = material;
     this.number = number;
@@ -15,27 +21,12 @@ public class Balloon implements Orderable<Balloon> {
     return balloonColor;
   }
 
-  public Balloon setBalloonColor(Colors balloonColor) {
-    this.balloonColor = balloonColor;
-    return this;
-  }
-
   public Material getMaterial() {
     return material;
   }
 
-  public Balloon setMaterial(Material material) {
-    this.material = material;
-    return this;
-  }
-
   public Integer getNumber() {
     return number;
-  }
-
-  public Balloon setNumber(Integer number) {
-    this.number = number;
-    return this;
   }
 
   /**
@@ -56,5 +47,30 @@ public class Balloon implements Orderable<Balloon> {
         .append(", ")
         .append(number)
         .toString();
+  }
+
+  public static class BalloonBuilder {
+    private Colors balloonColor;
+    private Material material;
+    private int number;
+
+    public BalloonBuilder setBalloonColor(Colors balloonColor) {
+      this.balloonColor = balloonColor;
+      return this;
+    }
+
+    public BalloonBuilder setMaterial(Material material) {
+      this.material = material;
+      return this;
+    }
+
+    public BalloonBuilder setNumber(int number) {
+      this.number = number;
+      return this;
+    }
+
+    public Balloon createBalloon() {
+      return new Balloon(balloonColor, material, number);
+    }
   }
 }

@@ -1,4 +1,4 @@
-package scrap.heap.refactor.domain;
+package scrap.heap.refactor.domain.constants;
 
 public enum Material {
   MYLAR("mylar"),
@@ -13,4 +13,8 @@ public enum Material {
   public String getMaterialType() {
     return getMaterialType;
   }
+
+    public static Material fromString(String text) {
+        return Material.valueOf(text.toUpperCase());
+    }
 }
