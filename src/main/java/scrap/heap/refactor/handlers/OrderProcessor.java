@@ -1,58 +1,33 @@
 package scrap.heap.refactor.handlers;
 
-import scrap.heap.refactor.builders.BalloonBuilder;
-import scrap.heap.refactor.builders.CakeBuilder;
-import scrap.heap.refactor.domain.*;
+import scrap.heap.refactor.domain.Balloon;
+import scrap.heap.refactor.domain.Cake;
+import scrap.heap.refactor.domain.constants.*;
+
+import java.util.Map;
 
 public class OrderProcessor {
-  public boolean buildAndPlaceOrder() {
+
+    public boolean buildAndOrder(Map<String, String[]> orderVO) {
     boolean orderConfirmation = false;
-
+        String[] cakeOptions = orderVO.get(Constants.CAKE_KEY);
+        String[] balloonOptions = orderVO.get(Constants.BALLON_KEY);
     try {
-      new BalloonBuilder()
-          .setBalloonColor(Colors.RED)
-          .setMaterial(Material.MYLAR)
-          .setNumber(4)
+        new Balloon.BalloonBuilder()
+                .setBalloonColor(Colors.valueOf(balloonOptions[0]))
+                .setMaterial(Material.fromString(balloonOptions[1]))
+                .setNumber(Integer.parseInt(balloonOptions[2]))
           .createBalloon()
           .placeOrder();
 
-      new CakeBuilder()
-          .setFlavor(Flavors.CHOCOLATE)
-          .setFrostingFlavor(Flavors.CHOCOLATE)
-          .setShape(Shapes.CIRCLE)
-          .setSize(Sizes.SMALL)
-          .setCakeColor(Colors.BROWN)
+        new Cake.CakeBuilder()
+                .setFlavor(Flavors.valueOf(cakeOptions[0]))
+                .setFrostingFlavor(Flavors.valueOf(cakeOptions[1]))
+                .setShape(Shapes.valueOf(cakeOptions[2]))
+                .setSize(Sizes.valueOf(cakeOptions[3]))
+                .setCakeColor(Colors.valueOf(cakeOptions[4]))
           .createCake()
           .placeOrder();
-
-      new BalloonBuilder()
-          .setBalloonColor(Colors.BLUE)
-          .setMaterial(Material.LATEX)
-          .setNumber(7)
-          .createBalloon();
-      new CakeBuilder()
-          .setFlavor(Flavors.VANILLA)
-          .setFrostingFlavor(Flavors.CHOCOLATE)
-          .setShape(Shapes.SQUARE)
-          .setSize(Sizes.MED)
-          .setCakeColor(Colors.BROWN)
-          .createCake()
-          .placeOrder();
-
-      new BalloonBuilder()
-          .setBalloonColor(Colors.YELLOW)
-          .setMaterial(Material.MYLAR)
-          .setNumber(4)
-          .createBalloon()
-          .placeOrder();
-
-      new CakeBuilder()
-          .setFlavor(Flavors.VANILLA)
-          .setFrostingFlavor(Flavors.VANILLA)
-          .setShape(Shapes.SQUARE)
-          .setSize(Sizes.SMALL)
-          .setCakeColor(Colors.YELLOW)
-          .createCake();
 
       orderConfirmation = true;
     } catch (Exception e) {
