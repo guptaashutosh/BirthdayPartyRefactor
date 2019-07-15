@@ -3,7 +3,6 @@ package scrap.heap.refactor.handlers;
 import org.apache.commons.cli.*;
 import scrap.heap.refactor.domain.constants.Constants;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,10 +11,10 @@ public class CommandLineProcessor {
      * Added to process the cmd line parameters for input
      *
      * @param args
-     * @return
-     * @throws IOException
+     * @return Map of processed param value
+     * @throws ParseException
      */
-    public Map<String, String[]> inputProcessor(String... args) throws IOException, ParseException {
+    public Map<String, String[]> inputProcessor(String... args) throws ParseException {
         // Using Scanner for Getting Input from User
         Map<String, String[]> orderMap = new HashMap<>();
         CommandLine cmd = validateAndFetchOptions(args);
@@ -55,7 +54,7 @@ public class CommandLineProcessor {
                 .desc("Birthday Cake Order")
                 .valueSeparator(',')
                 .hasArg()
-                .numberOfArgs(5)// sets that number of arguments is unlimited
+                .numberOfArgs(5) // sets that number of arguments is unlimited
                 .build();
     }
 
@@ -66,7 +65,7 @@ public class CommandLineProcessor {
                 .desc("Birthday order")
                 .valueSeparator(',')
                 .hasArgs()
-                .numberOfArgs(3)// sets that number of arguments is unlimited
+                .numberOfArgs(3) // sets that number of arguments is unlimited
                 .build();
     }
 }

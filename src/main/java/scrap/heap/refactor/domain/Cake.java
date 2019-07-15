@@ -13,12 +13,11 @@ public class Cake implements Orderable<Cake> {
   private Sizes size;
   private Colors cakeColor;
 
-  /**
-   * Private Constructor
-   * Making it private so that it can't be instantiated from anywhere else
-   */
-  private Cake() {
-  }
+    /**
+     * Private Constructor Making it private so that it can't be instantiated from anywhere else
+     */
+    private Cake() {
+    }
 
   private Cake(Flavors flavor, Flavors frostingFlavor, Shapes shape, Sizes size, Colors cakeColor) {
     this.flavor = flavor;

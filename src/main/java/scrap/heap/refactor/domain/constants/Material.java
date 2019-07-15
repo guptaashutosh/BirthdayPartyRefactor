@@ -10,11 +10,11 @@ public enum Material {
     this.getMaterialType = materialType;
   }
 
-  public String getMaterialType() {
-    return getMaterialType;
-  }
-
     public static Material fromString(String text) {
         return Material.valueOf(text.toUpperCase());
     }
+
+  public String getMaterialType() {
+    return getMaterialType;
+  }
 }
